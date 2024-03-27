@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     private Camera camera;
     private Rigidbody2D rb;
     private float force;
+    public int damage;
     void Start()
     {
         camera = GameObject.FindGameObjectWithTag("Main Camera").GetComponent<Camera>();
@@ -18,5 +19,13 @@ public class Bullet : MonoBehaviour
         rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        EnemyGFX enemy = hitInfo.GetComponent<EnemyGFX>();
+        if(enemy != null)
+        {
+            enemy.FlyerDamage(damage);
+        }
     }
 }
