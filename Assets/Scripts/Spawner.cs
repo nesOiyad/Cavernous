@@ -6,10 +6,11 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject enemy;
+    private GameObject cloneEnemy;
     private GameObject[] enemies;
     void Start()
     {
-        Spawn();
+        cloneEnemy = Instantiate(enemy, transform.position, Quaternion.identity);
     }
     void Update()
     {
@@ -17,10 +18,14 @@ public class Spawner : MonoBehaviour
         if(enemies == null){
             Spawn();
         }
+        if(cloneEnemy.GetComponent<Enemygfx>.flyerHealth <= 0)
+        {
+            Destroy(cloneEnemy);
+        }
     }
     public void Spawn()
     {
-        Instantiate(enemy, transform.position, Quaternion.identity);
+        cloneEnemy = Instantiate(enemy, transform.position, Quaternion.identity);
     } 
 
 }
