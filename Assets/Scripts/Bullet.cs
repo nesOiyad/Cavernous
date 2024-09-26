@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     public float speed = 5f;
     public GameObject gameObject;
     public GameObject enemy;
-    
+    public Animator snakeAnimator;
     void Start()
     {
         camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -31,21 +31,50 @@ public class Bullet : MonoBehaviour
     {
         DestroyObject(gameObject);
     }
-    
+    private void SelfDestruct()
+    {
+        DestroyObject(gameObject);
+    }
     void OnCollisionEnter2D(Collision2D hit)
     {
         if (hit.gameObject.tag == "solid")
         {
             Destroy(gameObject);
         }
-        
-
         if (hit.gameObject.tag == "Enemy")
         {
-            enemy.GetComponent<Enemygfx>().FlyerDamage(damage);
-            
+            hit.gameObject.GetComponent<Enemygfx>().FlyerDamage(damage);
+            Invoke("SelfDestruct", 0.01f);
+        }  
+        if (hit.gameObject.tag == "Ghost")
+        {
+            hit.gameObject.GetComponent<Ghostgfx>().GhostDamage(damage);
+            Invoke("SelfDestruct", 0.01f);
+        } 
+        if (hit.gameObject.tag == "Snake")
+        {
+            hit.gameObject.GetComponent<Snakegfx>().SnakeDamage(damage);
+            Invoke("SelfDestruct", 0.01f);
         }
-        
+        if (hit.gameObject.tag == "Spider")
+        {
+            hit.gameObject.GetComponent<Spidergfx>().SpiderDamage(damage);
+            Invoke("SelfDestruct", 0.01f);
+        }
+        if (hit.gameObject.tag == "EyeEnemy")
+        {
+            hit.gameObject.GetComponent<EnemyEye>().EyeDamage(damage);
+            Invoke("SelfDestruct", 0.01f);
+        }
+        if (hit.gameObject.tag == "BallEnemy")
+        {
+            hit.gameObject.GetComponent<Ballgfx>().BallDamage(damage);
+            Invoke("SelfDestruct", 0.01f);
+        }
+        if (hit.gameObject.tag == "Boss")
+        {
+            hit.gameObject.GetComponent<Bossgfx>().BossDamage(damage);
+            Invoke("SelfDestruct", 0.01f);
+        }
     } 
-    
 }
