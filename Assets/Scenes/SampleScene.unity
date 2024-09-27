@@ -1761,13 +1761,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.24355698, g: 1, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7482667652216324306, guid: c7c7f6a5b69164f7ea512bd1c96929ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 017a5d25c359a474ea72a5a695143021, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1820,8 +1820,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.082, y: -105.929}
-  m_SizeDelta: {x: 134.584, y: 36.059}
+  m_AnchoredPosition: {x: 46, y: -103.047}
+  m_SizeDelta: {x: 223.904, y: 30.297}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &373410705
 MonoBehaviour:
@@ -3725,7 +3725,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.79, y: 527.31}
+  m_AnchoredPosition: {x: 5.79, y: 538}
   m_SizeDelta: {x: 580.81, y: 83.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &885329546
@@ -4863,7 +4863,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7482667652216324306, guid: c7c7f6a5b69164f7ea512bd1c96929ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 017a5d25c359a474ea72a5a695143021, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6514,7 +6514,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.362, y: -18.561}
+  m_AnchoredPosition: {x: -6, y: -18.561}
   m_SizeDelta: {x: 117.784, y: 32.182}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1801594799
@@ -6701,7 +6701,7 @@ Canvas:
   m_GameObject: {fileID: 1843485492}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 1
   m_PixelPerfect: 1
