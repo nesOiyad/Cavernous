@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject normalScreen;
     private bool isDead = false;
     public GameObject displayBoss;
+    public ParticleSystem dust;
     //Defining needed variables
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -29,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
+        horizontal = Input.GetAxisRaw("Horizontal");
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded()){
             remainingJump += 1;
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
@@ -47,6 +48,10 @@ public class PlayerMovement : MonoBehaviour
         } 
         if (Input.GetKeyUp(KeyCode.LeftShift) && IsGrounded()){
             speed = setSpeed;
+        }
+        if (rb.velocity.x != 0 && IsGrounded())
+        {
+            CreateDust();
         }
         Flip();
         netSpeed = Mathf.Abs(rb.velocity.x); 
@@ -119,5 +124,9 @@ public class PlayerMovement : MonoBehaviour
             animator.SetTrigger("isHit");
             GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("PlayerHit");
         }
+    }
+    void CreateDust()
+    {
+        dust.Play();
     }
 }
